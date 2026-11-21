@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body { font-family: system-ui, sans-serif; background: #f0f2f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        .box { background: white; padding: 32px 24px; border-radius: 16px; width: 90%; max-width: 360px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h2 { margin: 0 0 20px; }
+        input { width: 100%; padding: 14px; font-size: 16px; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 12px; }
+        button { width: 100%; padding: 14px; background: #4f46e5; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; }
+        .flash { color: #b91c1c; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Team Access</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}<div class="flash">{{ messages[0] }}</div>{% endif %}
+        {% endwith %}
+        <form method="POST">
+            <input type="password" name="password" placeholder="Enter team password" required autofocus>
+            <button type="submit">Enter</button>
+        </form>
+    </div>
+</body>
+</html>
